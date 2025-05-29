@@ -10,12 +10,12 @@ jobs:
     name: Add PR labels
     runs-on: ubuntu-latest
     permissions:
-      issues: write
+      contents: read
       pull-requests: write
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
       - uses: actions/labeler@v5
         with:
-          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+        #   repo-token: '${{ secrets.GITHUB_TOKEN }}'
           sync-labels: true
