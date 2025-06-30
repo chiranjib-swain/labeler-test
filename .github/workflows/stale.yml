@@ -12,10 +12,10 @@ jobs:
     steps:
     - uses: actions/stale@v9.1.0
       with:
-        days-before-pr-stale: 6
+        days-before-pr-stale: 3
         days-before-pr-close: 14
         operations-per-run: 300
-        close-pr-label: stale
+        close-pr-label: close
         ignore-updates: false
         stale-pr-message: >
           The Lizmap project highly values your contribution and would love to see
