@@ -32,4 +32,4 @@ jobs:
       issues: write
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/labeler@v5.0.0
+      - uses: chiranjib-swain/labeler@feature/improve-labeler-permissions
