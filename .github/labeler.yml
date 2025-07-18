@@ -2,7 +2,7 @@
 # components:
 #   - changed-files:
 #       - any-glob-to-any-file: src/components/*
-demo-label:
+label test:
   - changed-files:
       - any-glob-to-any-file: 'README.md'
   - head-branch:
