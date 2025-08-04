@@ -2,4 +2,4 @@
 function Button({ label }) {
     return `<button>${label}</button>`;
   }
-  module.exports = Button; // sample text new
+  module.exports = Button; // sample text new test
