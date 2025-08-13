@@ -6,7 +6,7 @@ icons:
 
 code:
   - all:
-  - changed-files: # Not indented as it either had the same or better results
-    - any-glob-to-any-file: 'app/**'
-    - any-glob-to-all-files: '!app/src/main/res/*/strings.xml'
-    - any-glob-to-all-files: '!app/assets/appfilter.xml'
+    - changed-files: # Not indented as it either had the same or better results
+        - any-glob-to-any-file: 'app/**'
+        - any-glob-to-all-files: '!app/src/main/res/*/strings.xml'
+        - any-glob-to-all-files: '!app/assets/appfilter.xml'
