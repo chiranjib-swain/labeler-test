@@ -5,3 +5,4 @@ public class Foo {
         System.out.println("Hello from Foo!");
     }
 }
+// This file is part of the Labeler project
