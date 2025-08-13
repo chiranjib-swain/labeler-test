@@ -3,4 +3,3 @@
     <!-- Sample appfilter contents -->
     <item component="ComponentInfo{com.example/.MainActivity}" drawable="example_icon"/>
 </resources>
-// This file is part of the Labeler project
