@@ -19,7 +19,7 @@
 #         with:
 #           repo-token: '${{ secrets.GITHUB_TOKEN }}'
 #           sync-labels: true
-name: Labeler Test issue 713
+name: Labeler Test issue 870
 
 on:
   pull_request:
@@ -33,6 +33,6 @@ jobs:
       issues: write
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/labeler@v5
+      - uses: chiranjib-swain/labeler@feature/improve-labeler-permissions
         with:
           sync-labels: true
