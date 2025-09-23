@@ -10,17 +10,17 @@ jobs:
   stale:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/stale@v9.1.0
-      with:
-        days-before-pr-stale: 3
-        days-before-pr-close: 14
-        operations-per-run: 300
-        close-pr-label: close
-        ignore-updates: false
-        stale-pr-message: >
-          The Lizmap project highly values your contribution and would love to see
-          this work merged!
-          Unfortunately this PR has not had any activity in the last 3 days and
-          is being automatically marked as "stale".
-          If there is no further activity on this pull request, it will be closed in two
-          weeks.
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run Stale Bot
+        uses: actions/stale@v9
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: "This issue has been inactive for a while. Please take action or it will be closed."
+          stale-pr-message: "This pull request has been inactive for a while. Please take action or it will be closed."
+          days-before-stale: 89 # Mark PRs stale after 5 days of inactivity
+          remove-stale-when-updated: true
+          stale-issue-label: "U:Stale"
+          exempt-draft-pr: true
+          
