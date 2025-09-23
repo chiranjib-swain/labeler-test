@@ -1,0 +1,16 @@
+name: Dummy Bot Activity
+
+on:
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  activity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulate Activity
+        run: |
+          echo "Simulating activity..."
+          curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"body": "Dummy bot activity detected!"}' \
+            https://api.github.com/repos/${{ github.repository }}/issues/5/comments
