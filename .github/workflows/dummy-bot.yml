@@ -17,4 +17,4 @@ jobs:
           curl -X POST -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Content-Type: application/json" \
             -d '{"body": "Dummy bot activity detected!"}' \
-            https://api.github.com/repos/${{ github.repository }}/issues/5/comments
+            https://api.github.com/repos/${{ github.repository }}/issues/4/comments
