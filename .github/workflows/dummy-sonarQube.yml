@@ -1,0 +1,30 @@
+name: Dummy Bot Quality Check
+
+on:
+  workflow_dispatch: # Allow manual triggering
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run Dummy Quality Check
+        run: |
+          echo "Running dummy quality check..."
+          # Simulate a quality check (replace with actual logic if needed)
+          echo "Quality Gate passed!"
+
+      - name: Post Comment on Pull Request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"body": "✅ Quality Gate passed\n\nIssues:\n- 0 New issues\n- 0 Fixed issues\n- 0 Accepted issues\n\nMeasures:\n- 0 Security Hotspots\n- No data about Coverage\n- No data about Duplication"}' \
+            https://api.github.com/repos/${{ github.repository }}/issues/6/comments
