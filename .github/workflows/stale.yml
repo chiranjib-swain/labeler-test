@@ -23,4 +23,5 @@ jobs:
           remove-stale-when-updated: true
           stale-issue-label: "U:Stale"
           exempt-draft-pr: true
+          ignore-updates: true
           
