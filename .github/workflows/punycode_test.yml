@@ -17,7 +17,7 @@ jobs:
           stale-issue-message: 'This issue is stale because it has been open for 200 days with no activity.'
           stale-pr-message: 'This pull request is stale because it has been open for 200 days with no activity.'
           stale-pr-label: 'U:Stale'
-          close-issue-reason: 'Manually Closed'
+          close-issue-reason: 'completed'
           days-before-issue-stale: 200
           days-before-pr-stale: 200
           days-before-close: 2
