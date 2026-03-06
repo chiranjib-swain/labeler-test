@@ -1,22 +1,14 @@
+changed-files-limit: 3
+
 component-a:
   - changed-files:
       - any-glob-to-any-file: "components/a/**"
-
 component-b:
   - changed-files:
       - any-glob-to-any-file: "components/b/**"
-
 component-c:
   - changed-files:
       - any-glob-to-any-file: "components/c/**"
-
-component-d:
-  - changed-files:
-      - any-glob-to-any-file: "components/d/**"
-
-docs:
-  - changed-files:
-      - any-glob-to-any-file: "docs/**"
 
 test-branch:
   - head-branch: "^test/"
