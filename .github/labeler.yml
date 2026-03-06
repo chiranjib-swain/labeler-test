@@ -1,4 +1,4 @@
-changed-files-limit: "10abc"
+changed-files-limit: 3.2
 
 component-a:
   - changed-files:
