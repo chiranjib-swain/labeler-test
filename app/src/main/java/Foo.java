@@ -5,4 +5,4 @@ public class Foo {
         System.out.println("Hello from Foo!");
     }
 }
-//test/mixed-rule
+//test/mixed-rule 2nd
