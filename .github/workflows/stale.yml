@@ -1,27 +1,19 @@
-name: 'Close stale issues and PRs related to Test Issue 1008'
+name: "PR Labeler"
 on:
-  workflow_dispatch:
+  pull_request_target:
+    types: [opened, synchronize, reopened, edited]
 
 permissions:
+  contents: read
+  pull-requests: read
   issues: write
-  pull-requests: write
 
 jobs:
-  stale:
+  label:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Run Stale Bot
-        uses: actions/stale@v9
+      - uses: actions/labeler@v5
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          stale-issue-message: "This issue has been inactive for a while. Please take action or it will be closed."
-          stale-pr-message: "This pull request has been inactive for a while. Please take action or it will be closed."
-          days-before-stale: 89 # Mark PRs stale after 5 days of inactivity
-          remove-stale-when-updated: true
-          stale-issue-label: "U:Stale"
-          exempt-draft-pr: true
-          ignore-updates: true
-          
+          configuration-path: .github/labeler.yml
+          sync-labels: false
