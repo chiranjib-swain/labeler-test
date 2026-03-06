@@ -1,7 +1,5 @@
-# changed-files-limit: 0
+changed-files-limit: "invalid"
 
-mixed-label:
-  - any:
-      - head-branch: "^test/"
-      - changed-files:
-          - any-glob-to-any-file: ["components/a/**"]
+component-a:
+  - changed-files:
+      - any-glob-to-any-file: ["components/a/**"]
