@@ -1,5 +1,13 @@
-changed-files-limit: 3.2
+changed-files-limit: 2
 
 component-a:
   - changed-files:
       - any-glob-to-any-file: ["components/a/**"]
+
+component-b:
+  - changed-files:
+      - any-glob-to-any-file: ["components/b/**"]
+
+component-c:
+  - changed-files:
+      - any-glob-to-any-file: ["components/c/**"]
