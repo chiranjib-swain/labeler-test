@@ -11,3 +11,19 @@ component-b:
 component-c:
   - changed-files:
       - any-glob-to-any-file: ["components/c/**"]
+
+component-d:
+  - changed-files:
+      - any-glob-to-any-file: ["components/d/**"]
+
+component-e:
+  - changed-files:
+      - any-glob-to-any-file: ["components/e/**"]
+
+component-f:
+  - changed-files:
+      - any-glob-to-any-file: ["components/f/**"]
+
+component-g:
+  - changed-files:
+      - any-glob-to-any-file: ["components/g/**"]
