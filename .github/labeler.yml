@@ -1,4 +1,4 @@
-changed-files-limit: 2
+changed-files-labels-limit: 2
 
 component-a:
   - changed-files:
