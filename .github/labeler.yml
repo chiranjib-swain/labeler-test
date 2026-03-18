@@ -41,3 +41,7 @@ changed-files-limit:
 max-files-changed:
   - changed-files:
       - any-glob-to-any-file: ["src/**"]
+
+normal-label:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
