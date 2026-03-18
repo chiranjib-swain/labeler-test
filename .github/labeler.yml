@@ -1,32 +1,43 @@
-max-files-changed: 3
+# max-files-changed: 3
 
-component-a:
+# component-a:
+#   - changed-files:
+#       - any-glob-to-any-file: ["components/a/**"]
+
+# component-b:
+#   - changed-files:
+#       - any-glob-to-any-file: ["components/b/**"]
+
+# component-c:
+#   - changed-files:
+#       - any-glob-to-any-file: ["components/c/**"]
+
+# component-d:
+#   - changed-files:
+#       - any-glob-to-any-file: ["components/d/**"]
+
+# component-e:
+#   - changed-files:
+#       - any-glob-to-any-file: ["components/e/**"]
+
+# component-f:
+#   - changed-files:
+#       - any-glob-to-any-file: ["components/f/**"]
+
+# component-g:
+#   - changed-files:
+#       - any-glob-to-any-file: ["components/g/**"]
+
+# test-branch:
+#   - head-branch: "^test/"
+# ================================================================
+# NOTE: These keys are treated specially by the action.
+# We are intentionally using them as label names to test behavior.
+
+changed-files-limit:
   - changed-files:
-      - any-glob-to-any-file: ["components/a/**"]
+      - any-glob-to-any-file: ["src/**"]
 
-component-b:
+max-files-changed:
   - changed-files:
-      - any-glob-to-any-file: ["components/b/**"]
-
-component-c:
-  - changed-files:
-      - any-glob-to-any-file: ["components/c/**"]
-
-component-d:
-  - changed-files:
-      - any-glob-to-any-file: ["components/d/**"]
-
-component-e:
-  - changed-files:
-      - any-glob-to-any-file: ["components/e/**"]
-
-component-f:
-  - changed-files:
-      - any-glob-to-any-file: ["components/f/**"]
-
-component-g:
-  - changed-files:
-      - any-glob-to-any-file: ["components/g/**"]
-
-test-branch:
-  - head-branch: "^test/"
+      - any-glob-to-any-file: ["src/**"]
