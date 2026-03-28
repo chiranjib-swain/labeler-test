@@ -32,6 +32,10 @@ permissions:
 jobs:
   label:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
     steps:
       - uses: bluca/labeler@label_limit
         with:
