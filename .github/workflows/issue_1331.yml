@@ -11,16 +11,21 @@ jobs:
   stale:
     runs-on: ubuntu-latest
     steps:
-      - uses: chiranjib-swain/stale@feature/only-issue-types-filter
+      - uses: actions/stale@v10
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
           # Make sure PRs are in scope
-          stale-pr-message: "stale pr"
-          days-before-pr-stale: 200
+          stale-issue-message: "stale pr"
+          days-before-issue-stale: 200
 
           # This triggers the buggy behavior
           only-issue-types: bug
 
           # Optional, but useful to see logs
           debug-only: true
+          
+          # PRs: disable completely (won’t mark/comment/close PRs)
+          days-before-pr-stale: -1
+          days-before-pr-close: -1
+
