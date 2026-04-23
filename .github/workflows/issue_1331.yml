@@ -16,8 +16,9 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
           # Make sure PRs are in scope
-          stale-issue-message: "stale pr"
-          days-before-issue-stale: 300
+          stale-issue-message: "stale Issue"
+          stale-pr-message: "stale PR"
+          days-before-stale: 300
 
           # This triggers the buggy behavior
           only-issue-types: ''
@@ -25,7 +26,4 @@ jobs:
           # Optional, but useful to see logs
           debug-only: true
           
-          # PRs: disable completely (won’t mark/comment/close PRs)
-          days-before-pr-stale: -1
-          days-before-pr-close: -1
 
