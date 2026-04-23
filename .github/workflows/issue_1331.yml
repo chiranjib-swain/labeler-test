@@ -17,10 +17,10 @@ jobs:
 
           # Make sure PRs are in scope
           stale-issue-message: "stale pr"
-          days-before-issue-stale: 200
+          days-before-issue-stale: 300
 
           # This triggers the buggy behavior
-          only-issue-types: bug
+          only-issue-types: ''
 
           # Optional, but useful to see logs
           debug-only: true
