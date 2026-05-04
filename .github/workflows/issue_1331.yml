@@ -21,7 +21,7 @@ jobs:
           days-before-stale: 300
 
           # This triggers the buggy behavior
-          only-issue-types: 'bug,question'
+          # only-issue-types: 'bug,question'
 
           # Optional, but useful to see logs
           debug-only: true
