@@ -1,0 +1,34 @@
+name: '2-step 1331 Close Stale Issues and PRs'
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Stale Bug Issues only
+        uses: actions/stale@v10
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          only-issue-types: 'Bug'
+          days-before-issue-stale: 300
+          days-before-issue-close: 10
+          stale-issue-message: 'This bug issue has been inactive for 300 days. It will be closed in 10 days if there is no further activity.'
+          # days-before-pr-stale: -1
+          # days-before-pr-close: -1
+
+      - name: Stale all PRs
+        uses: actions/stale@v10
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          days-before-pr-stale: 300
+          days-before-pr-close: 10
+          stale-pr-message: 'This pull request has been inactive for 300 days. It will be closed in 10 days if there is no further activity.'
+          days-before-issue-stale: -1
+          days-before-issue-close: -1
