@@ -20,8 +20,8 @@ jobs:
     name: "Bug Test → pr-number: abc"
     runs-on: ubuntu-latest
     steps:
-      - name: Run actions/labeler@v6 with pr-number = abc
-        uses: actions/labeler@v6
+      - name: Run chiranjib-swain/labeler@fix/pr-number-validation-logic with pr-number = abc
+        uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
@@ -34,8 +34,8 @@ jobs:
     name: "Bug Test → pr-number: -1"
     runs-on: ubuntu-latest
     steps:
-      - name: Run actions/labeler@v6 with pr-number = -1
-        uses: actions/labeler@v6
+      - name: Run chiranjib-swain/labeler@fix/pr-number-validation-logic with pr-number = -1
+        uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
@@ -48,8 +48,8 @@ jobs:
     name: "Bug Test → pr-number: 0"
     runs-on: ubuntu-latest
     steps:
-      - name: Run actions/labeler@v6 with pr-number = 0
-        uses: actions/labeler@v6
+      - name: Run chiranjib-swain/labeler@fix/pr-number-validation-logic with pr-number = 0
+        uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
@@ -62,8 +62,8 @@ jobs:
     name: "Control → pr-number from input (should work)"
     runs-on: ubuntu-latest
     steps:
-      - name: Run actions/labeler@v6 with a real PR number
-        uses: actions/labeler@v6
+      - name: Run chiranjib-swain/labeler@fix/pr-number-validation-logic with a real PR number
+        uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
