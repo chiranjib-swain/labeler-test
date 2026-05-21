@@ -1,0 +1,71 @@
+name: "Test PR Number Bug"
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr-number:
+        description: "Enter a PR number — use invalid values to test the bug (abc, -1, 0) or a real PR number"
+        required: true
+        default: "abc"
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+
+  # --- BUG TEST: Invalid string ---
+  test-invalid-string:
+    name: "Bug Test → pr-number: abc"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run actions/labeler@v6 with pr-number = abc
+        uses: actions/labeler@v6
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: "abc"
+        # BUG (&&):  NaN passes silently → GitHub API crash
+        # FIX (||):  Warning printed, skipped cleanly
+
+  # --- BUG TEST: Negative number ---
+  test-negative-number:
+    name: "Bug Test → pr-number: -1"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run actions/labeler@v6 with pr-number = -1
+        uses: actions/labeler@v6
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: "-1"
+        # BUG (&&):  -1 passes silently → GitHub API 404
+        # FIX (||):  Warning printed, skipped cleanly
+
+  # --- BUG TEST: Zero ---
+  test-zero:
+    name: "Bug Test → pr-number: 0"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run actions/labeler@v6 with pr-number = 0
+        uses: actions/labeler@v6
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: "0"
+        # BUG (&&):  0 passes silently → GitHub API 404
+        # FIX (||):  Warning printed, skipped cleanly
+
+  # --- CONTROL TEST: Real PR number (use your input) ---
+  test-valid-number:
+    name: "Control → pr-number from input (should work)"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run actions/labeler@v6 with a real PR number
+        uses: actions/labeler@v6
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: ${{ github.event.inputs.pr-number }}
+        # This works fine in both buggy and fixed versions IF a real PR number is passed

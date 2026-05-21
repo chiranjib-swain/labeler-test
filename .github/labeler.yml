@@ -1,47 +1,40 @@
-# max-files-changed: 3
-
-# component-a:
-#   - changed-files:
-#       - any-glob-to-any-file: ["components/a/**"]
-
-# component-b:
-#   - changed-files:
-#       - any-glob-to-any-file: ["components/b/**"]
-
-# component-c:
-#   - changed-files:
-#       - any-glob-to-any-file: ["components/c/**"]
-
-# component-d:
-#   - changed-files:
-#       - any-glob-to-any-file: ["components/d/**"]
-
-# component-e:
-#   - changed-files:
-#       - any-glob-to-any-file: ["components/e/**"]
-
-# component-f:
-#   - changed-files:
-#       - any-glob-to-any-file: ["components/f/**"]
-
-# component-g:
-#   - changed-files:
-#       - any-glob-to-any-file: ["components/g/**"]
-
-# test-branch:
-#   - head-branch: "^test/"
-# ================================================================
-# NOTE: These keys are treated specially by the action.
-# We are intentionally using them as label names to test behavior.
-
-changed-files-limit:
+# Labels based on your actual repo structure
+android:
   - changed-files:
-      - any-glob-to-any-file: ["src/**"]
+      - any-glob-to-any-file: ["app/**"]
 
-max-files-changed:
+component-a:
   - changed-files:
-      - any-glob-to-any-file: ["src/**"]
+      - any-glob-to-any-file: ["components/a/**"]
 
-normal-label:
+component-b:
   - changed-files:
-      - any-glob-to-any-file: ["src/**"]
+      - any-glob-to-any-file: ["components/b/**"]
+
+component-c:
+  - changed-files:
+      - any-glob-to-any-file: ["components/c/**"]
+
+component-d:
+  - changed-files:
+      - any-glob-to-any-file: ["components/d/**"]
+
+component-e:
+  - changed-files:
+      - any-glob-to-any-file: ["components/e/**"]
+
+component-f:
+  - changed-files:
+      - any-glob-to-any-file: ["components/f/**"]
+
+component-g:
+  - changed-files:
+      - any-glob-to-any-file: ["components/g/**"]
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: ["docs/**"]
+
+frontend:
+  - changed-files:
+      - any-glob-to-any-file: ["src/components/**"]
