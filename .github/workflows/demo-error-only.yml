@@ -1,0 +1,33 @@
+name: Demo - error only (cosmetic, still passes)
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr-number:
+        description: 'PR numbers (try: 999999, abc, -1, 0)'
+        required: true
+        default: '30'
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run labeler with mixed input
+        uses: actions/labeler@demo/error-no-setfailed
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-number: |
+            ${{ github.event.inputs.pr-number }}
+            abc
+            -1
+
+# EXPECTED RESULT:
+# - Job: GREEN ✅  (still exits 0 — core.error alone does NOT fail the job)
+# - Annotations: 2x red ❌ error annotations for 'abc' and '-1'
+# - Valid PR still gets labeled
+# - PROOF: same outcome as warning branch, only colour changes
