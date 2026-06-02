@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run labeler with mixed input
-        uses: actions/labeler@demo/error-no-setfailed
+        uses: chiranjib-swain/labeler@demo/error-no-setfailed
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           pr-number: |
