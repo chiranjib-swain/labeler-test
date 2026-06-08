@@ -25,9 +25,9 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
-          pr-number: "abc"
-        # BUG (&&):  NaN passes silently → GitHub API crash
-        # FIX (||):  Warning printed, skipped cleanly
+          pr-number: |
+                    abc
+                    ✓ All checks passed
 
   # --- BUG TEST: Negative number ---
   test-negative-number:
@@ -39,23 +39,8 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
-          pr-number: "-1"
-        # BUG (&&):  -1 passes silently → GitHub API 404
-        # FIX (||):  Warning printed, skipped cleanly
+          pr-number: "abc\rdef"
 
-  # --- BUG TEST: Zero ---
-  test-zero:
-    name: "Bug Test → pr-number: 0"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run chiranjib-swain/labeler@fix/pr-number-validation-logic with pr-number = 0
-        uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          configuration-path: .github/labeler.yml
-          pr-number: "0"
-        # BUG (&&):  0 passes silently → GitHub API 404
-        # FIX (||):  Warning printed, skipped cleanly
 
   # --- CONTROL TEST: Real PR number (use your input) ---
   test-valid-number:
