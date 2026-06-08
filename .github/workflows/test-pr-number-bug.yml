@@ -1,12 +1,12 @@
-name: "Test PR Number Bug"
+name: "PR Number Sanitization Tests"
 
 on:
   workflow_dispatch:
     inputs:
       pr-number:
-        description: "Enter a PR number — use invalid values to test the bug (abc, -1, 0) or a real PR number"
+        description: "Valid PR number for control test"
         required: true
-        default: "abc"
+        default: "1"
 
 permissions:
   contents: read
@@ -14,43 +14,94 @@ permissions:
   issues: write
 
 jobs:
-
-  # --- BUG TEST: Invalid string ---
-  test-invalid-string:
-    name: "Bug Test → pr-number: abc"
+  test-plain-invalid:
+    name: "Plain Invalid String"
     runs-on: ubuntu-latest
     steps:
-      - name: Run chiranjib-swain/labeler@fix/pr-number-validation-logic with pr-number = abc
-        uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: "abcdef"
+
+  test-multiline:
+    name: "Multiline Input"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
           pr-number: |
-                    abc
-                    ✓ All checks passed
+            abc
+            ✓ All checks passed
 
-  # --- BUG TEST: Negative number ---
-  test-negative-number:
-    name: "Bug Test → pr-number: -1"
+  test-carriage-return-literal:
+    name: "Literal CR Sequence"
     runs-on: ubuntu-latest
     steps:
-      - name: Run chiranjib-swain/labeler@fix/pr-number-validation-logic with pr-number = -1
-        uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
           pr-number: "abc\rdef"
 
-
-  # --- CONTROL TEST: Real PR number (use your input) ---
-  test-valid-number:
-    name: "Control → pr-number from input (should work)"
+  test-tab-literal:
+    name: "Literal Tab Sequence"
     runs-on: ubuntu-latest
     steps:
-      - name: Run chiranjib-swain/labeler@fix/pr-number-validation-logic with a real PR number
-        uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: "abc\tdef"
+
+  test-ansi-literal:
+    name: "Literal ANSI Escape Sequence"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: '\x1b[31mERROR\x1b[0m'
+
+  test-esc-placeholder:
+    name: "ESC Placeholder"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: '<ESC>[31mERROR<ESC>[0m'
+
+  test-github-command:
+    name: "GitHub Workflow Command"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: "::warning::Injected warning"
+
+  test-mask-command:
+    name: "Mask Command"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: "::add-mask::secret"
+
+  test-valid-number:
+    name: "Valid PR Number"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
           pr-number: ${{ github.event.inputs.pr-number }}
-        # This works fine in both buggy and fixed versions IF a real PR number is passed
