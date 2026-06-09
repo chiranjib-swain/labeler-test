@@ -86,6 +86,16 @@ jobs:
           configuration-path: .github/labeler.yml
           pr-number: "::warning::Injected warning"
 
+  test-injected-command:
+    name: "Injected Command"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: "abc\x1b[31mINJECTED\x1b[0m"
+
   test-mask-command:
     name: "Mask Command"
     runs-on: ubuntu-latest
