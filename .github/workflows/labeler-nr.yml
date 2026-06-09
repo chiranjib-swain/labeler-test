@@ -90,7 +90,7 @@ jobs:
     name: "Injected Command"
     runs-on: ubuntu-latest
     steps:
-      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+      - uses: chiranjib-swain/labeler@4fa1c1eb6dfc03feb3bf4d3b643fd4b806389e4c
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
