@@ -1,0 +1,107 @@
+name: "PR Number Sanitization Tests with only line"
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr-number:
+        description: "Valid PR number for control test"
+        required: true
+        default: "1"
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  test-plain-invalid:
+    name: "Plain Invalid String"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@4fa1c1eb6dfc03feb3bf4d3b643fd4b806389e4c
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: "abcdef"
+
+  test-multiline:
+    name: "Multiline Input"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@4fa1c1eb6dfc03feb3bf4d3b643fd4b806389e4c
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: |
+            abc
+            ✓ All checks passed
+
+  test-carriage-return-literal:
+    name: "Literal CR Sequence"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@4fa1c1eb6dfc03feb3bf4d3b643fd4b806389e4c
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: "abc\rdef"
+
+  test-tab-literal:
+    name: "Literal Tab Sequence"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@4fa1c1eb6dfc03feb3bf4d3b643fd4b806389e4c
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: "abc\tdef"
+
+  test-ansi-literal:
+    name: "Literal ANSI Escape Sequence"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@4fa1c1eb6dfc03feb3bf4d3b643fd4b806389e4c
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: '\x1b[31mERROR\x1b[0m'
+
+  test-esc-placeholder:
+    name: "ESC Placeholder"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@4fa1c1eb6dfc03feb3bf4d3b643fd4b806389e4c
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: '<ESC>[31mERROR<ESC>[0m'
+
+  test-github-command:
+    name: "GitHub Workflow Command"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@4fa1c1eb6dfc03feb3bf4d3b643fd4b806389e4c
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: "::warning::Injected warning"
+
+  test-mask-command:
+    name: "Mask Command"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@4fa1c1eb6dfc03feb3bf4d3b643fd4b806389e4c
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: "::add-mask::secret"
+
+  test-valid-number:
+    name: "Valid PR Number"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/labeler@4fa1c1eb6dfc03feb3bf4d3b643fd4b806389e4c
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+          pr-number: ${{ github.event.inputs.pr-number }}
