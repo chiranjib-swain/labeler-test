@@ -64,7 +64,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
-          pr-number: '\x1b[31mERROR\x1b[0m'
+          pr-number: "\x1b[31mERROR\x1b[0m"
 
   test-esc-placeholder:
     name: "ESC Placeholder"
@@ -74,7 +74,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
-          pr-number: '<ESC>[31mERROR<ESC>[0m'
+          pr-number: "<ESC>[31mERROR<ESC>[0m"
 
   test-github-command:
     name: "GitHub Workflow Command"
