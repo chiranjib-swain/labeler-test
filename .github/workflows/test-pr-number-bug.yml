@@ -28,7 +28,7 @@ jobs:
     name: "Multiline Input"
     runs-on: ubuntu-latest
     steps:
-      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+      - uses: chiranjib-swain/labeler@esm-migration
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
@@ -40,7 +40,7 @@ jobs:
     name: "Literal CR Sequence"
     runs-on: ubuntu-latest
     steps:
-      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+      - uses: chiranjib-swain/labeler@esm-migration
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
@@ -50,7 +50,7 @@ jobs:
     name: "Literal Tab Sequence"
     runs-on: ubuntu-latest
     steps:
-      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+      - uses: chiranjib-swain/labeler@esm-migration
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
@@ -60,7 +60,7 @@ jobs:
     name: "Literal ANSI Escape Sequence"
     runs-on: ubuntu-latest
     steps:
-      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+      - uses: chiranjib-swain/labeler@esm-migration
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
@@ -70,7 +70,7 @@ jobs:
     name: "ESC Placeholder"
     runs-on: ubuntu-latest
     steps:
-      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+      - uses: chiranjib-swain/labeler@esm-migration
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
@@ -80,7 +80,7 @@ jobs:
     name: "GitHub Workflow Command"
     runs-on: ubuntu-latest
     steps:
-      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+      - uses: chiranjib-swain/labeler@esm-migration
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
@@ -90,7 +90,7 @@ jobs:
     name: "Injected Command"
     runs-on: ubuntu-latest
     steps:
-      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+      - uses: chiranjib-swain/labeler@esm-migration
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
@@ -100,7 +100,7 @@ jobs:
     name: "Mask Command"
     runs-on: ubuntu-latest
     steps:
-      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+      - uses: chiranjib-swain/labeler@esm-migration
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
@@ -110,7 +110,7 @@ jobs:
     name: "Valid PR Number"
     runs-on: ubuntu-latest
     steps:
-      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+      - uses: chiranjib-swain/labeler@esm-migration
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
