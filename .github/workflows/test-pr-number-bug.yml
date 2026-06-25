@@ -18,7 +18,7 @@ jobs:
     name: "Plain Invalid String"
     runs-on: ubuntu-latest
     steps:
-      - uses: chiranjib-swain/labeler@fix/pr-number-validation-logic
+      - uses: chiranjib-swain/labeler@esm-migration
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
