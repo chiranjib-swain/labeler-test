@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Sample appfilter contents -->
-    <!-- Updated to validate app/** labeler configuration -->
-    <!-- Re-trigger: testing label-101 addition on a PR that already has label-001..label-100 -->
+    <!-- Trigger: testing 100 labels with actions/labeler@main -->
     <item component="ComponentInfo{com.example/.MainActivity}" drawable="example_icon"/>
 </resources>
