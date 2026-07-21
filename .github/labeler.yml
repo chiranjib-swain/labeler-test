@@ -400,3 +400,7 @@ label-099:
 label-100:
   - changed-files:
       - any-glob-to-any-file: ["app/**"]
+
+label-101:
+  - changed-files:
+      - any-glob-to-any-file: ["docs/**"]
