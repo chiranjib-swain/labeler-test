@@ -1,0 +1,25 @@
+name: Test Max Labels (pr-957 branch)
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr-number:
+        description: 'Pull request number to label'
+        required: true
+        default: '28'
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  test-labeler:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run labeler from pr-957 branch
+        uses: chiranjib-swain/labeler@pr-957
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-number: ${{ inputs.pr-number }}
+          sync-labels: false
