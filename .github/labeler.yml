@@ -1,40 +1,402 @@
-# Labels based on your actual repo structure
-android:
+# Apply many labels from a single file change
+# Any change under app/** will add all of these labels
+
+label-001:
   - changed-files:
       - any-glob-to-any-file: ["app/**"]
 
-component-a:
+label-002:
   - changed-files:
-      - any-glob-to-any-file: ["components/a/**"]
+      - any-glob-to-any-file: ["app/**"]
 
-component-b:
+label-003:
   - changed-files:
-      - any-glob-to-any-file: ["components/b/**"]
+      - any-glob-to-any-file: ["app/**"]
 
-component-c:
+label-004:
   - changed-files:
-      - any-glob-to-any-file: ["components/c/**"]
+      - any-glob-to-any-file: ["app/**"]
 
-component-d:
+label-005:
   - changed-files:
-      - any-glob-to-any-file: ["components/d/**"]
+      - any-glob-to-any-file: ["app/**"]
 
-component-e:
+label-006:
   - changed-files:
-      - any-glob-to-any-file: ["components/e/**"]
+      - any-glob-to-any-file: ["app/**"]
 
-component-f:
+label-007:
   - changed-files:
-      - any-glob-to-any-file: ["components/f/**"]
+      - any-glob-to-any-file: ["app/**"]
 
-component-g:
+label-008:
   - changed-files:
-      - any-glob-to-any-file: ["components/g/**"]
+      - any-glob-to-any-file: ["app/**"]
 
-documentation:
+label-009:
   - changed-files:
-      - any-glob-to-any-file: ["docs/**"]
+      - any-glob-to-any-file: ["app/**"]
 
-frontend:
+label-010:
   - changed-files:
-      - any-glob-to-any-file: ["src/components/**"]
+      - any-glob-to-any-file: ["app/**"]
+
+label-011:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-012:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-013:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-014:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-015:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-016:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-017:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-018:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-019:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-020:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-021:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-022:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-023:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-024:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-025:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-026:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-027:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-028:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-029:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-030:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-031:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-032:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-033:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-034:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-035:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-036:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-037:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-038:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-039:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-040:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-041:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-042:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-043:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-044:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-045:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-046:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-047:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-048:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-049:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-050:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-051:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-052:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-053:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-054:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-055:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-056:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-057:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-058:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-059:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-060:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-061:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-062:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-063:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-064:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-065:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-066:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-067:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-068:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-069:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-070:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-071:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-072:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-073:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-074:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-075:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-076:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-077:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-078:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-079:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-080:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-081:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-082:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-083:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-084:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-085:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-086:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-087:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-088:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-089:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-090:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-091:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-092:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-093:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-094:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-095:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-096:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-097:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-098:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-099:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-100:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
