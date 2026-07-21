@@ -1,7 +1,6 @@
 name: "PR Labeler"
 on:
-  pull_request_target:
-    types: [opened, synchronize, reopened, edited]
+  workflow_dispatch: 
 
 permissions:
   contents: read
@@ -12,7 +11,7 @@ jobs:
   label:
     runs-on: ubuntu-latest
     steps:
-      - uses: bluca/labeler@label_limit
+      - uses: chiranjib-swain/labeler@pr-957
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
