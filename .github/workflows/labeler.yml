@@ -11,10 +11,11 @@ permissions:
 jobs:
   label:
     runs-on: ubuntu-latest
-    if: github.head_ref == 'test-new-issue-870'
+    if: github.head_ref == 'test-new-issue-870' || github.head_ref == 'feature/sync-limit'
     steps:
       - uses: chiranjib-swain/labeler@pr-957
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
           sync-labels: true
+
