@@ -1,1 +1,0 @@
-trigger run A - apply 100 app labels (main branch setLabels test)
