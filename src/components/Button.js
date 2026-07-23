@@ -1,5 +1,2 @@
-// A sample component
-function Button({ label }) {
-    return `<button>${label}</button>`;
-  }
-  module.exports = Button;
+// Button component - updated for src label test
+export default function Button() { return null; }
