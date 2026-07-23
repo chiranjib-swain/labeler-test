@@ -1,5 +1,5 @@
-# Apply many labels from any file change
-# Any changed file under app/ will add all of these labels
+# label-001 to label-100: applied when any app/** file changes
+# label-101 to label-200: applied when any src/** file changes
 
 label-001:
   - changed-files:
@@ -300,3 +300,503 @@ label-074:
 label-075:
   - changed-files:
       - any-glob-to-any-file: ["app/**"]
+
+label-076:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-077:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-078:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-079:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-080:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-081:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-082:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-083:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-084:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-085:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-086:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-087:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-088:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-089:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-090:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-091:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-092:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-093:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-094:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-095:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-096:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-097:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-098:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-099:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-100:
+  - changed-files:
+      - any-glob-to-any-file: ["app/**"]
+
+label-101:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-102:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-103:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-104:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-105:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-106:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-107:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-108:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-109:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-110:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-111:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-112:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-113:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-114:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-115:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-116:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-117:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-118:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-119:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-120:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-121:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-122:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-123:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-124:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-125:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-126:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-127:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-128:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-129:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-130:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-131:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-132:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-133:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-134:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-135:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-136:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-137:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-138:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-139:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-140:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-141:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-142:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-143:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-144:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-145:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-146:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-147:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-148:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-149:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-150:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-151:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-152:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-153:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-154:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-155:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-156:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-157:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-158:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-159:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-160:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-161:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-162:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-163:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-164:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-165:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-166:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-167:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-168:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-169:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-170:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-171:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-172:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-173:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-174:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-175:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-176:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-177:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-178:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-179:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-180:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-181:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-182:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-183:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-184:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-185:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-186:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-187:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-188:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-189:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-190:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-191:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-192:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-193:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-194:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-195:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-196:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-197:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-198:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-199:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
+
+label-200:
+  - changed-files:
+      - any-glob-to-any-file: ["src/**"]
