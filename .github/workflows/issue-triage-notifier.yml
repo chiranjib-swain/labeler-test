@@ -92,21 +92,25 @@ jobs:
           LINES=""
 
           for REPO in "${REPOS[@]}"; do
-            COUNT=$(gh api "repos/$REPO/issues?state=open&per_page=100" \
+            # Only count issues that:
+            #   • are not PRs
+            #   • were created within the look-back window
+            #   • carry the "needs triage" label
+            COUNT=$(gh api "repos/$REPO/issues?state=open&labels=needs+triage&per_page=100" \
               --jq "[.[] | select(.pull_request == null and .created_at >= \"$SINCE\")] | length" \
               2>/dev/null || echo "0")
             COUNT=${COUNT:-0}
 
-            echo "$REPO → $COUNT new issue(s)"
+            echo "$REPO → $COUNT issue(s) with 'needs triage'"
 
             if [ "$COUNT" -gt 0 ]; then
-              LINES+="• $REPO : $COUNT new\n"
+              LINES+="• $REPO : $COUNT needs-triage\n"
               TOTAL=$((TOTAL + COUNT))
             fi
           done
 
           if [ "$TOTAL" -gt 0 ]; then
-            BODY="$(printf "New issues since last check:\n\n${LINES}\nView: https://github.com/issues?q=is:issue+is:open+org:actions")"
+            BODY="$(printf "Issues labelled 'needs triage' since last check:\n\n${LINES}\nView: https://github.com/issues?q=is:issue+is:open+org:actions+label:\"needs+triage\"")"
 
             curl -s --fail \
               -H "Title: Triage needed — $TOTAL new issue(s)" \
@@ -115,7 +119,7 @@ jobs:
               -d "$BODY" \
               "https://ntfy.sh/$NTFY_TOPIC"
 
-            echo "✓ Notification sent — $TOTAL new issue(s) across ${#REPOS[@]} repos."
+            echo "✓ Notification sent — $TOTAL 'needs triage' issue(s) across ${#REPOS[@]} repos."
           else
-            echo "✓ No new issues found since $SINCE. No notification sent."
+            echo "✓ No 'needs triage' issues found since $SINCE. No notification sent."
           fi
