@@ -33,6 +33,15 @@ on:
 
   # Lets you trigger it manually from the Actions tab for testing
   workflow_dispatch:
+    inputs:
+      test_notify:
+        description: 'Send a test ping to your phone (yes/no)'
+        required: false
+        default: 'no'
+      lookback_hours:
+        description: 'How many hours back to check for issues (default: 8)'
+        required: false
+        default: '168'   # 7 days for manual runs so you always see results
 
 jobs:
   check-new-issues:
@@ -47,6 +56,23 @@ jobs:
         run: |
           set -euo pipefail
 
+          # ── Test ping (for manual runs with test_notify=yes) ──────────────
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && \
+             [ "${{ github.event.inputs.test_notify }}" = "yes" ]; then
+            echo "Sending test notification..."
+            curl -s --fail \
+              -H "Title: ntfy test — setup is working!" \
+              -H "Priority: default" \
+              -H "Tags: white_check_mark" \
+              -d "Your Issue Triage Notifier is connected. You will get alerts here during triage week." \
+              "https://ntfy.sh/$NTFY_TOPIC"
+            echo "✓ Test notification sent."
+          fi
+
+          # ── Pick look-back window ─────────────────────────────────────────
+          HOURS="${{ github.event.inputs.lookback_hours }}"
+          HOURS="${HOURS:-8}"   # scheduled runs always use 8h
+
           # Repos to monitor
           REPOS=(
             "actions/setup-java"
@@ -59,7 +85,7 @@ jobs:
           )
 
           # Look back 8 hours to cover the gap between runs
-          SINCE=$(date -u -d '8 hours ago' +%Y-%m-%dT%H:%M:%SZ)
+          SINCE=$(date -u -d "${HOURS} hours ago" +%Y-%m-%dT%H:%M:%SZ)
           echo "Checking for issues created after: $SINCE"
 
           TOTAL=0
