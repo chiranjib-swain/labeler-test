@@ -1,0 +1,95 @@
+name: Issue Triage Notifier
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SETUP (one-time, before your triage week):
+#
+# 1. MOBILE APP — Install "ntfy" on your phone:
+#      Android: https://play.google.com/store/apps/details?id=io.eda.ntfy
+#      iOS:     https://apps.apple.com/app/ntfy/id1625396347
+#
+# 2. SUBSCRIBE — Pick a unique secret topic name, e.g. "my-triage-abc42xyz"
+#    Open the ntfy app → tap "+" → enter your topic name → Subscribe.
+#    (Anyone who knows the topic can see messages, so keep it random/secret.)
+#
+# 3. GITHUB SECRETS — In this repo go to:
+#    Settings → Secrets and variables → Actions → New repository secret
+#
+#    NTFY_TOPIC  →  your secret topic name (e.g. my-triage-abc42xyz)
+#    GH_PAT      →  a Personal Access Token with `public_repo` (read) scope
+#                   (Settings → Developer settings → Personal access tokens)
+#
+# 4. ENABLE ACTIONS — Make sure GitHub Actions is enabled for this repo.
+#
+# 5. TEST — Use the "Run workflow" button in the Actions tab to fire it once.
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  schedule:
+    # Runs at 06:00, 14:00, 22:00 UTC  (≈ every 8 hours)
+    # Adjust the hours to suit your timezone:
+    #   IST  (UTC+5:30) → 06:00 UTC = 11:30 AM IST
+    #   EST  (UTC-5)    → 06:00 UTC =  1:00 AM EST  (may want to shift)
+    - cron: '0 6,14,22 * * *'
+
+  # Lets you trigger it manually from the Actions tab for testing
+  workflow_dispatch:
+
+jobs:
+  check-new-issues:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check repos for new issues and send mobile notification
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # instead of secrets.GH_PAT
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          set -euo pipefail
+
+          # Repos to monitor
+          REPOS=(
+            "actions/setup-java"
+            "actions/setup-dotnet"
+            "actions/setup-go"
+            "actions/setup-node"
+            "actions/setup-python"
+            "actions/stale"
+            "actions/labeler"
+          )
+
+          # Look back 8 hours to cover the gap between runs
+          SINCE=$(date -u -d '8 hours ago' +%Y-%m-%dT%H:%M:%SZ)
+          echo "Checking for issues created after: $SINCE"
+
+          TOTAL=0
+          LINES=""
+
+          for REPO in "${REPOS[@]}"; do
+            COUNT=$(gh api "repos/$REPO/issues?state=open&per_page=100" \
+              --jq "[.[] | select(.pull_request == null and .created_at >= \"$SINCE\")] | length" \
+              2>/dev/null || echo "0")
+            COUNT=${COUNT:-0}
+
+            echo "$REPO → $COUNT new issue(s)"
+
+            if [ "$COUNT" -gt 0 ]; then
+              LINES+="• $REPO : $COUNT new\n"
+              TOTAL=$((TOTAL + COUNT))
+            fi
+          done
+
+          if [ "$TOTAL" -gt 0 ]; then
+            BODY="$(printf "New issues since last check:\n\n${LINES}\nView: https://github.com/issues?q=is:issue+is:open+org:actions")"
+
+            curl -s --fail \
+              -H "Title: Triage needed — $TOTAL new issue(s)" \
+              -H "Priority: high" \
+              -H "Tags: rotating_light,github" \
+              -d "$BODY" \
+              "https://ntfy.sh/$NTFY_TOPIC"
+
+            echo "✓ Notification sent — $TOTAL new issue(s) across ${#REPOS[@]} repos."
+          else
+            echo "✓ No new issues found since $SINCE. No notification sent."
+          fi
