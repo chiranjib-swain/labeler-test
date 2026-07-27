@@ -37,7 +37,7 @@ on:
       test_notify:
         description: 'Send a test ping to your phone (yes/no)'
         required: false
-        default: 'no'
+        default: 'yes'
       lookback_hours:
         description: 'How many hours back to check for issues (default: 8)'
         required: false
@@ -110,16 +110,22 @@ jobs:
           done
 
           if [ "$TOTAL" -gt 0 ]; then
-            BODY="$(printf "Issues labelled 'needs triage' since last check:\n\n${LINES}\nView: https://github.com/issues?q=is:issue+is:open+org:actions+label:\"needs+triage\"")"
-
-            curl -s --fail \
-              -H "Title: Triage needed — $TOTAL new issue(s)" \
-              -H "Priority: high" \
-              -H "Tags: rotating_light,github" \
-              -d "$BODY" \
-              "https://ntfy.sh/$NTFY_TOPIC"
-
-            echo "✓ Notification sent — $TOTAL 'needs triage' issue(s) across ${#REPOS[@]} repos."
+            TITLE="Triage needed — $TOTAL new issue(s)"
+            PRIORITY="high"
+            TAGS="rotating_light,github"
+            BODY="$(printf "Issues labelled 'needs triage' since last check:\n\n${LINES}\nView: https://github.com/issues?q=is:issue+is:open+org:actions+label:needs+triage")"
           else
-            echo "✓ No 'needs triage' issues found since $SINCE. No notification sent."
+            TITLE="All clear — no needs-triage issues"
+            PRIORITY="low"
+            TAGS="white_check_mark,github"
+            BODY="$(printf "No new 'needs triage' issues found in the last ${HOURS}h across all 7 repos.\nChecked at: $(date -u +"%Y-%m-%d %H:%M UTC")")"
           fi
+
+          curl -s --fail \
+            -H "Title: $TITLE" \
+            -H "Priority: $PRIORITY" \
+            -H "Tags: $TAGS" \
+            -d "$BODY" \
+            "https://ntfy.sh/$NTFY_TOPIC"
+
+          echo "✓ Notification sent — $TOTAL 'needs triage' issue(s)."
