@@ -96,16 +96,17 @@ jobs:
             #   • are not PRs
             #   • were created within the look-back window
             #   • carry the "needs triage" label
-            COUNT=$(gh api "repos/$REPO/issues?state=open&labels=needs+triage&per_page=100" \
-              --jq "[.[] | select(.pull_request == null and .created_at >= \"$SINCE\")] | length" \
-              2>/dev/null || echo "0")
-            COUNT=${COUNT:-0}
+            ISSUES=$(gh api "repos/$REPO/issues?state=open&labels=needs+triage&per_page=100" \
+              --jq "[.[] | select(.pull_request == null and .created_at >= \"$SINCE\") | \"  #\(.number) \(.title)\"] | .[]" \
+              2>/dev/null || true)
 
-            echo "$REPO → $COUNT issue(s) with 'needs triage'"
-
-            if [ "$COUNT" -gt 0 ]; then
-              LINES+="• $REPO : $COUNT needs-triage\n"
+            if [ -n "$ISSUES" ]; then
+              COUNT=$(echo "$ISSUES" | wc -l | tr -d ' ')
+              echo "$REPO → $COUNT issue(s) with 'needs triage'"
+              LINES+="[$REPO]\n$ISSUES\n\n"
               TOTAL=$((TOTAL + COUNT))
+            else
+              echo "$REPO → 0 issue(s) with 'needs triage'"
             fi
           done
 
@@ -113,7 +114,7 @@ jobs:
             TITLE="Triage needed — $TOTAL new issue(s)"
             PRIORITY="high"
             TAGS="rotating_light,github"
-            BODY="$(printf "Issues labelled 'needs triage' since last check:\n\n${LINES}\nView: https://github.com/issues?q=is:issue+is:open+org:actions+label:needs+triage")"
+            BODY="$(printf "Issues labelled 'needs triage' since last check:\n\n${LINES}View: https://github.com/issues?q=is:issue+is:open+org:actions+label:needs+triage")"
           else
             TITLE="All clear — no needs-triage issues"
             PRIORITY="low"
