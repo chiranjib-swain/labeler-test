@@ -1,0 +1,29 @@
+name: Reproduce stale PR pagination issue 1360
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/stale@da0270520ab479e2cbeace8ee08286f2a24d0c13
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          only-pr-labels: pagination-1360
+          stale-pr-label: U:Stale
+          stale-pr-message: ''
+          close-pr-message: ''
+          close-pr-label: ''
+          days-before-pr-stale: 30
+          days-before-pr-close: 0
+          days-before-issue-stale: -1
+          days-before-issue-close: -1
+          operations-per-run: 1000
+          sort-by: created
+          ascending: false
