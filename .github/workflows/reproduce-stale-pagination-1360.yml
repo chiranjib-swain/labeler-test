@@ -16,6 +16,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           only-pr-labels: pagination-1360
+          exempt-pr-labels: pagination-1360-exempt
           stale-pr-label: U:Stale
           stale-pr-message: ''
           close-pr-message: ''
