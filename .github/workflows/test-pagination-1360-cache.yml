@@ -2,6 +2,11 @@ name: Test pagination 1360 - operations-per-run caching (no staling, baseline ma
 
 on:
   workflow_dispatch:
+    inputs:
+      operations-per-run:
+        description: 'operations-per-run value for this dispatch'
+        default: '2'
+        required: false
 
 permissions:
   contents: read
@@ -20,6 +25,6 @@ jobs:
           only-pr-labels: pagination-1360
           days-before-pr-stale: -1
           days-before-issue-stale: -1
-          operations-per-run: 2
+          operations-per-run: ${{ github.event.inputs.operations-per-run }}
           sort-by: created
           ascending: false
