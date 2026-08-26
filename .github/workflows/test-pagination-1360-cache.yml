@@ -18,7 +18,7 @@ jobs:
   cache-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: chiranjib-swain/stale@7e181f72d4b54a4442693287d4da8c8cb37fc742
+      - uses: chiranjib-swain/stale@e1f194b1565fb80a45b28a435ec2a8c45909f2bc
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           debug-only: false
