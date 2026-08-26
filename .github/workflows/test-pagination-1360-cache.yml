@@ -1,4 +1,4 @@
-name: Test pagination 1360 - operations-per-run caching (no staling)
+name: Test pagination 1360 - operations-per-run caching (no staling, baseline main)
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ jobs:
   cache-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: chiranjib-swain/stale@687422e64af43d97e2a041dce7ad3f3f26c53ac5
+      - uses: chiranjib-swain/stale@da0270520ab479e2cbeace8ee08286f2a24d0c13
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           debug-only: false
