@@ -1,0 +1,25 @@
+name: Test pagination 1360 - operations-per-run caching (no staling)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+  actions: write
+
+jobs:
+  cache-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chiranjib-swain/stale@687422e64af43d97e2a041dce7ad3f3f26c53ac5
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          debug-only: false
+          only-pr-labels: pagination-1360
+          days-before-pr-stale: -1
+          days-before-issue-stale: -1
+          operations-per-run: 2
+          sort-by: created
+          ascending: false
