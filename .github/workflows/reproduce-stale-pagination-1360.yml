@@ -12,7 +12,7 @@ jobs:
   reproduce:
     runs-on: ubuntu-latest
     steps:
-      - uses: chiranjib-swain/stale@107ca16e7044ed2c484d6281b353c96e077ac399
+      - uses: chiranjib-swain/stale@10f6df38bfe1ae062d6cb4de35e189bb69bd1276
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           only-pr-labels: pagination-1360
