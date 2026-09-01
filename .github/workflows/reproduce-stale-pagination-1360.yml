@@ -2,11 +2,17 @@ name: Reproduce stale PR pagination issue 1360
 
 on:
   workflow_dispatch:
+    inputs:
+      operations-per-run:
+        description: 'operations-per-run value for this dispatch'
+        default: '1000'
+        required: false
 
 permissions:
   contents: read
   issues: write
   pull-requests: write
+  actions: write
 
 jobs:
   reproduce:
@@ -25,6 +31,6 @@ jobs:
           days-before-pr-close: 0
           days-before-issue-stale: -1
           days-before-issue-close: -1
-          operations-per-run: 1000
+          operations-per-run: ${{ github.event.inputs.operations-per-run }}
           sort-by: created
           ascending: false
